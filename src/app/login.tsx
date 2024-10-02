@@ -5,21 +5,16 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { useRouter } from 'next/navigation'
+// import { useRouter } from 'next/navigation'
 
 interface LoginComponentProps {
   onLogin: (username: string) => void
 }
 
 // Simulated login function
-const loginUser = async (username: string, password: string): Promise<boolean> => {
-  // In a real application, this would be an API call to authenticate the user
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      // For demo purposes, we'll consider any non-empty username and password as valid
-      resolve(username.length > 0 && password.length > 0)
-    }, 1000)
-  })
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const loginUser = async (email: string, password: string) => {
+  // ... your login logic here
 }
 
 export default function LoginComponent({ onLogin }: LoginComponentProps) {
