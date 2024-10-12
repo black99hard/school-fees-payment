@@ -11,7 +11,6 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import WalletComponent from './wallet'
 import FeesComponent from './fees'
-import LoginComponent from './login'
 import TransactionHistoryComponent from './transaction-history'
 import { BookOpen, GraduationCap, User } from 'lucide-react'
 import AboutMeModal from './AboutMe'
@@ -87,10 +86,7 @@ export default function DashboardPage() {
     }
   };
 
-  if (!isLoggedIn) {
-    return <LoginComponent onLogin={handleLogin} />
-  }
-
+ 
   return (
     <div className="container mx-auto p-4 space-y-6">
       <div className="flex justify-between items-center mb-6">
