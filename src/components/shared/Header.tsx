@@ -13,7 +13,7 @@ export default function Header() {
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-2 text-xl font-bold">
           <GraduationCap className="h-6 w-6" />
-          <span>Management System</span>
+          <span>School Fees Payment</span>
         </Link>
         
         {session ? (

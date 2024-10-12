@@ -70,7 +70,7 @@ export default function LoginPage() {
       <Card className="w-full max-w-lg bg-white/90 backdrop-blur-sm shadow-2xl border-0">
         <CardHeader className="text-center">
           <CardTitle className="text-4xl font-bold mb-2 text-emerald-700">Welcome Back</CardTitle>
-          <CardDescription className="text-emerald-600">Sign in to access the School Management System</CardDescription>
+          <CardDescription className="text-emerald-600">Sign in to access the school-fees-payment</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleLogin} className="space-y-6">

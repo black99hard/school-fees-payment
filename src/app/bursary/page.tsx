@@ -38,7 +38,7 @@ const bursaryData = {
 }
 
 export default function BursaryDashboard() {
-  const [searchTerm, setSearchTerm] = useState('')
+  const [searchTerm, setSearchTerm] = useState<string>('')
   const [selectedStudent, setSelectedStudent] = useState(null)
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false)
   const [paymentAmount, setPaymentAmount] = useState('')
@@ -104,13 +104,13 @@ export default function BursaryDashboard() {
 
           <div className="flex justify-between items-center mb-4">
             <div className="flex items-center space-x-2">
-              <Search className="h-5 w-5 text-emerald-500" />
-              <Input 
-                placeholder="Search students..." 
-                value={searchTerm} 
-                onChange={(e) => handleSearch(e.target.value)}
-                className="border-emerald-300 focus:border-emerald-500 focus:ring-emerald-500"
-              />
+                  <Search className="h-5 w-5 text-emerald-500" />
+            <Input 
+              placeholder="Search students..." 
+              value={searchTerm} 
+              onChange={(e) => handleSearch(e.target.value)}
+              className="border-emerald-300 focus:border-emerald-500 focus:ring-emerald-500"
+            />
             </div>
             <Dialog>
               <DialogTrigger asChild>
