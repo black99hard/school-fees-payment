@@ -39,18 +39,22 @@ const bursaryData = {
 
 export default function BursaryDashboard() {
   const [searchTerm, setSearchTerm] = useState<string>('')
-  const [selectedStudent, setSelectedStudent] = useState(null)
-  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false)
-  const [paymentAmount, setPaymentAmount] = useState('')
+  const [selectedStudent, setSelectedStudent] = useState<{ id: string; name: string; course: string; year: number; totalFees: number; paidFees: number; lastPaymentDate: string } | null>(null)
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState<boolean>(false)
+  const [paymentAmount, setPaymentAmount] = useState<string>('')
 
-  const handleSearch = (term) => {
+  const handleSearch = (term: string) => {
     setSearchTerm(term)
     // In a real app, this would trigger an API call to search for students
   }
 
   const handlePayment = () => {
     // In a real app, this would process the payment and update the database
-    alert(`Payment of $${paymentAmount} processed for ${selectedStudent.name}`)
+    if (selectedStudent) {
+        alert(`Payment of $${paymentAmount} processed for ${selectedStudent.name}`)
+    } else {
+        alert('No student selected for payment.')
+    }
     setIsPaymentModalOpen(false)
     setPaymentAmount('')
   }
@@ -73,7 +77,7 @@ export default function BursaryDashboard() {
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold text-emerald-700">${bursaryData.collectedFees.toFixed(2)}</div>
-                <Progress className="mt-2" value={(bursaryData.collectedFees / bursaryData.totalFees) * 100} className="bg-emerald-100" indicatorClassName="bg-emerald-500" />
+                <Progress className="mt-2" value={(bursaryData.collectedFees / bursaryData.totalFees) * 100} />
                 <p className="text-xs text-emerald-600 mt-2">
                   ${bursaryData.collectedFees.toFixed(2)} of ${bursaryData.totalFees.toFixed(2)}
                 </p>

@@ -65,11 +65,11 @@ const hodData = {
 
 export default function HODDashboard() {
   const [searchTerm, setSearchTerm] = useState('')
-  const [selectedStaff, setSelectedStaff] = useState(null)
-  const [selectedCourse, setSelectedCourse] = useState(null)
-  const [selectedStudent, setSelectedStudent] = useState(null)
+  const [selectedStaff, setSelectedStaff] = useState<{ id: number; name: string; position: string; courses: string[]; email: string; phone: string; officeHours: string } | null>(null)
+  const [selectedCourse, setSelectedCourse] = useState<{ id: string; name: string; students: number; averageGrade: number; passingRate: number } | null>(null)
+  const [selectedStudent, setSelectedStudent] = useState<{ id: string; name: string; year: number; gpa: number; advisor: string; courses: string[] } | null>(null)
 
-  const handleSearch = (term) => {
+  const handleSearch = (term: string) => {
     setSearchTerm(term)
     // In a real app, this would trigger an API call to search for students, staff, or courses
   }
