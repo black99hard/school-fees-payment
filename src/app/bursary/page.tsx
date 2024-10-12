@@ -51,7 +51,7 @@ export default function BursaryDashboard() {
   const handlePayment = () => {
     // In a real app, this would process the payment and update the database
     if (selectedStudent) {
-        alert(`Payment of $${paymentAmount} processed for ${selectedStudent.name}`)
+        alert(`Payment of ₦₦{paymentAmount} processed for ₦{selectedStudent.name}`)
     } else {
         alert('No student selected for payment.')
     }
@@ -65,7 +65,6 @@ export default function BursaryDashboard() {
         <CardHeader>
           <div className="flex justify-between items-center">
             <CardTitle className="text-3xl font-bold text-emerald-700">Bursary Dashboard</CardTitle>
-            <Button variant="outline" className="bg-emerald-500 text-white hover:bg-emerald-600" onClick={() => alert('Logout functionality to be implemented')}>Logout</Button>
           </div>
         </CardHeader>
         <CardContent>
@@ -76,10 +75,10 @@ export default function BursaryDashboard() {
                 <DollarSign className="h-4 w-4 text-emerald-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-emerald-700">${bursaryData.collectedFees.toFixed(2)}</div>
+                <div className="text-2xl font-bold text-emerald-700">₦{bursaryData.collectedFees.toFixed(2)}</div>
                 <Progress className="mt-2" value={(bursaryData.collectedFees / bursaryData.totalFees) * 100} />
                 <p className="text-xs text-emerald-600 mt-2">
-                  ${bursaryData.collectedFees.toFixed(2)} of ${bursaryData.totalFees.toFixed(2)}
+                  ₦{bursaryData.collectedFees.toFixed(2)} of ₦{bursaryData.totalFees.toFixed(2)}
                 </p>
               </CardContent>
             </Card>
@@ -99,7 +98,7 @@ export default function BursaryDashboard() {
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold text-emerald-700">
-                  ${(bursaryData.collectedFees / bursaryData.studentCount).toFixed(2)}
+                  ₦{(bursaryData.collectedFees / bursaryData.studentCount).toFixed(2)}
                 </div>
                 <p className="text-xs text-emerald-600 mt-2">Per student</p>
               </CardContent>
@@ -177,7 +176,7 @@ export default function BursaryDashboard() {
                           <TableCell>{transaction.name}</TableCell>
                           <TableCell>{transaction.description}</TableCell>
                           <TableCell>{transaction.method}</TableCell>
-                          <TableCell className="text-right font-medium text-emerald-700">${transaction.amount.toFixed(2)}</TableCell>
+                          <TableCell className="text-right font-medium text-emerald-700">₦{transaction.amount.toFixed(2)}</TableCell>
                         </TableRow>
                       ))}
                     </TableBody>
@@ -213,8 +212,8 @@ export default function BursaryDashboard() {
                           <TableCell>{student.name}</TableCell>
                           <TableCell>{student.course}</TableCell>
                           <TableCell>{student.year}</TableCell>
-                          <TableCell>${student.totalFees.toFixed(2)}</TableCell>
-                          <TableCell>${student.paidFees.toFixed(2)}</TableCell>
+                          <TableCell>₦{student.totalFees.toFixed(2)}</TableCell>
+                          <TableCell>₦{student.paidFees.toFixed(2)}</TableCell>
                           <TableCell>{student.lastPaymentDate}</TableCell>
                           <TableCell>
                             <span className={student.paidFees >= student.totalFees ? "text-green-500 font-medium" : "text-red-500 font-medium"}>
@@ -290,7 +289,7 @@ export default function BursaryDashboard() {
                           <TableCell>{invoice.id}</TableCell>
                           <TableCell>{invoice.studentId}</TableCell>
                           <TableCell>{invoice.name}</TableCell>
-                          <TableCell>${invoice.amount.toFixed(2)}</TableCell>
+                          <TableCell>₦{invoice.amount.toFixed(2)}</TableCell>
                           <TableCell>{invoice.dueDate}</TableCell>
                           <TableCell>
                             <span className="text-yellow-500 font-medium flex items-center">
@@ -301,7 +300,7 @@ export default function BursaryDashboard() {
                           <TableCell>
                             <Button 
                               className="bg-emerald-500 text-white hover:bg-emerald-600"
-                              onClick={() => alert(`Sending reminder for invoice ${invoice.id}`)}
+                              onClick={() => alert(`Sending reminder for invoice ₦{invoice.id}`)}
                             >
                               Send Reminder
                             </Button>

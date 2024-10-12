@@ -80,7 +80,6 @@ export default function HODDashboard() {
         <CardHeader>
           <div className="flex justify-between items-center">
             <CardTitle className="text-3xl font-bold text-emerald-700">HOD Dashboard - {hodData.departmentName}</CardTitle>
-            <Button variant="outline" className="bg-emerald-500 text-white hover:bg-emerald-600" onClick={() => alert('Logout functionality to be implemented')}>Logout</Button>
           </div>
         </CardHeader>
         <CardContent>
